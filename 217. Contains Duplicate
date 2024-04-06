@@ -32,5 +32,18 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        set1 = set(nums)
-        return len(set1)!=len(nums)
+        # 1st approch
+        # set1 = set(nums)
+        # return len(set1)!=len(nums)
+
+        #2nd Approch
+        #sorting the list
+        for j in range(len(nums)):
+            for i in range(len(nums)-1):
+                if nums[i+1]<nums[i]:
+                    nums[i], nums[i+1] = nums[i+1], nums[i]
+        
+        for i in range(len(nums)-1):
+            if(nums[i]==nums[i+1]):
+                return True
+        return False
